@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GrupoRozMamDB/GrupoRozMamDB.sqlproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
