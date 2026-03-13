@@ -1,5 +1,8 @@
 <Solution>
-  <Project Path="GrupoRozMamDB/GrupoRozMamDB.sqlproj">
+  <Project Path="App/App.csproj" Id="068f1805-fae4-4951-b49a-6fe8917d8826" />
+  <Project Path="CapaDatos/CapaDatos.csproj" Id="5ac244c3-880c-4a16-ba30-92866fcf22a8" />
+  <Project Path="CapaNegocios/CapaNegocios.csproj" Id="4b496517-cb3c-4112-9c0e-592318d91852" />
+  <Project Path="GrupoRozMamDB/GrupoRozMamDB.sqlproj" Id="2b922649-629c-4d4d-8ab4-94b708e17e15">
     <Build />
     <Deploy />
   </Project>
