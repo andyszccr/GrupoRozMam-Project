@@ -1,0 +1,50 @@
+@model IReadOnlyList<EtiquetaModelo>
+@{
+    ViewData["Title"] = "Etiquetas";
+}
+
+<h1 class="mb-3">Etiquetas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Nueva etiqueta</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Creado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>
+                    @if (item.Activo)
+                    {
+                        <span class="badge bg-success">Sí</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td>@item.FechaCreacion?.ToString("g")</td>
+                <td class="text-nowrap">
+                    <a asp-action="Details" asp-route-id="@item.IdEtiqueta">Ver</a> |
+                    <a asp-action="Edit" asp-route-id="@item.IdEtiqueta">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdEtiqueta">Desactivar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">No hay etiquetas registradas.</p>
+}
