@@ -1,0 +1,23 @@
+@model MarcaModelo
+@{
+    ViewData["Title"] = "Desactivar marca";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p class="text-muted">Por motivos de integridad con productos, la marca no se elimina de la base: solo se marca como inactiva.</p>
+
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">Nombre</dt>
+    <dd class="col-sm-10">@Model.Nombre</dd>
+    <dt class="col-sm-2">Descripción</dt>
+    <dd class="col-sm-10">@Model.Descripcion</dd>
+    <dt class="col-sm-2">Activo</dt>
+    <dd class="col-sm-10">@(Model.Activo ? "Sí" : "No")</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdMarca" method="post">
+    <button type="submit" class="btn btn-danger">Confirmar desactivación</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+</form>

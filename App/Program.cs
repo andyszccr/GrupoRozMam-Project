@@ -1,3 +1,5 @@
+using CapaNegocios;
+
 namespace App
 {
     public class Program
@@ -5,6 +7,8 @@ namespace App
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddScoped<MarcaServicio>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
