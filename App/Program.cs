@@ -9,6 +9,7 @@ namespace App
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddScoped<MarcaServicio>();
+            builder.Services.AddScoped<CategoriaServicio>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
