@@ -1,0 +1,29 @@
+@model RolModelo
+@{
+    ViewData["Title"] = "Detalle rol";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">Id</dt>
+    <dd class="col-sm-10">@Model.IdRol</dd>
+    <dt class="col-sm-2">Nombre</dt>
+    <dd class="col-sm-10">@Model.Nombre</dd>
+    <dt class="col-sm-2">Descripción</dt>
+    <dd class="col-sm-10">@Model.Descripcion</dd>
+    <dt class="col-sm-2">Activo</dt>
+    <dd class="col-sm-10">@(Model.Activo ? "Sí" : "No")</dd>
+    <dt class="col-sm-2">Creado</dt>
+    <dd class="col-sm-10">@Model.FechaCreacion?.ToString("g")</dd>
+    <dt class="col-sm-2">Modificado</dt>
+    <dd class="col-sm-10">@Model.FechaModificacion?.ToString("g")</dd>
+    <dt class="col-sm-2">Desactivado</dt>
+    <dd class="col-sm-10">@Model.FechaDesactivacion?.ToString("g")</dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdRol" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Volver</a>
+</div>

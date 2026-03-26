@@ -15,7 +15,7 @@
             <th>Nombre</th>
             <th>Activo</th>
             <th>Creado</th>
-            <th></th>
+            <th class="text-end">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -34,10 +34,12 @@
                     }
                 </td>
                 <td>@item.FechaCreacion?.ToString("g")</td>
-                <td class="text-nowrap">
-                    <a asp-action="Details" asp-route-id="@item.IdCategoria">Ver</a> |
-                    <a asp-action="Edit" asp-route-id="@item.IdCategoria">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdCategoria">Desactivar</a>
+                <td class="text-end text-nowrap">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a asp-action="Details" asp-route-id="@item.IdCategoria" class="btn btn-outline-secondary" title="Ver"><i class="bi bi-eye" aria-hidden="true"></i></a>
+                        <a asp-action="Edit" asp-route-id="@item.IdCategoria" class="btn btn-outline-primary" title="Editar"><i class="bi bi-pencil-square" aria-hidden="true"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.IdCategoria" class="btn btn-outline-danger" title="Desactivar"><i class="bi bi-slash-circle" aria-hidden="true"></i></a>
+                    </div>
                 </td>
             </tr>
         }

@@ -11,6 +11,7 @@ namespace App
             builder.Services.AddScoped<MarcaServicio>();
             builder.Services.AddScoped<CategoriaServicio>();
             builder.Services.AddScoped<EtiquetaServicio>();
+            builder.Services.AddScoped<RolServicio>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
