@@ -27,14 +27,11 @@ public class RolServicio
         return nuevoId;
     }
 
-    public bool Actualizar(RolModelo modelo)
+    public int Actualizar(RolModelo modelo)
     {
-        bool actualizado = _repositorio.Actualizar(MapearAEntidad(modelo));
-        if (actualizado)
-        {
-            _repositorio.GuardarPermisos(modelo.IdRol, modelo.PermisosSeleccionados);
-        }
-        return actualizado;
+        int idActualizado = _repositorio.Actualizar(MapearAEntidad(modelo));
+        _repositorio.GuardarPermisos(idActualizado, modelo.PermisosSeleccionados);
+        return idActualizado;
     }
 
     public bool Desactivar(int idRol) => _repositorio.Desactivar(idRol);

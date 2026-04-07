@@ -71,8 +71,7 @@ namespace App.Controllers
                 CargarPermisosViewBag();
                 return View(modelo);
             }
-            if (!_servicio.Actualizar(modelo))
-                return NotFound();
+            _servicio.Actualizar(modelo);
             return RedirectToAction(nameof(Index));
         }
 

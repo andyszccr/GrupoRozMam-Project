@@ -58,7 +58,7 @@ public class RolRepositorio
         return Convert.ToInt32(cmd.ExecuteScalar());
     }
 
-    public bool Actualizar(Rol r)
+    public int Actualizar(Rol r)
     {
         using var cn = ConexionDB.CrearConexion();
         cn.Open();
@@ -70,7 +70,8 @@ public class RolRepositorio
         cmd.Parameters.AddWithValue("@Nombre", r.Nombre);
         cmd.Parameters.AddWithValue("@Descripcion", r.Descripcion);
         cmd.Parameters.AddWithValue("@Activo", r.Activo);
-        return cmd.ExecuteNonQuery() > 0;
+        cmd.ExecuteNonQuery();
+        return r.IdRol;
     }
 
     public bool Desactivar(int idRol)
