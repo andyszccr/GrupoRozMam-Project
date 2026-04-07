@@ -24,6 +24,26 @@
                 <input asp-for="Activo" class="form-check-input" />
                 <label asp-for="Activo" class="form-check-label"></label>
             </div>
+            
+            <div class="mb-3">
+                <label class="form-label fw-bold">Asignación de Permisos</label>
+                <div class="border p-3 rounded bg-light">
+                    @if (ViewBag.PermisosDisponibles != null)
+                    {
+                        foreach (var permiso in ViewBag.PermisosDisponibles as List<CapaNegocios.PermisoModelo>)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="PermisosSeleccionados" value="@permiso.IdPermiso" 
+                                       @(Model.PermisosSeleccionados != null && Model.PermisosSeleccionados.Contains(permiso.IdPermiso) ? "checked" : "") />
+                                <label class="form-check-label">
+                                    <strong>@permiso.Nombre</strong> 
+                                    <span class="text-muted" style="font-size:0.85em;">- @permiso.Descripcion</span>
+                                </label>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>

@@ -5,7 +5,6 @@ CREATE PROCEDURE [dbo].[usp_Roles_Actualizar]
     @Activo BIT
 AS
 BEGIN
-    SET NOCOUNT ON;
     UPDATE dbo.Roles
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,

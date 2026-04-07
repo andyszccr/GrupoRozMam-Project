@@ -27,4 +27,7 @@ public class RolModelo
 
     [Display(Name = "Desactivado")]
     public DateTime? FechaDesactivacion { get; set; }
+
+    [Display(Name = "Permisos Asignados")]
+    public List<int> PermisosSeleccionados { get; set; } = new();
 }

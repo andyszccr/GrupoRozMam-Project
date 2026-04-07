@@ -84,4 +84,35 @@ public class RolRepositorio
         cmd.Parameters.AddWithValue("@IdRol", idRol);
         return cmd.ExecuteNonQuery() > 0;
     }
+
+    public List<int> ObtenerPermisosPorRol(int idRol)
+    {
+        var lista = new List<int>();
+        using var cn = ConexionDB.CrearConexion();
+        cn.Open();
+        using var cmd = new SqlCommand("dbo.usp_RolPermiso_ObtenerPorRol", cn)
+        {
+            CommandType = System.Data.CommandType.StoredProcedure
+        };
+        cmd.Parameters.AddWithValue("@IdRol", idRol);
+        using var rd = cmd.ExecuteReader();
+        while (rd.Read())
+        {
+            lista.Add(rd.GetInt32(rd.GetOrdinal("IdPermiso")));
+        }
+        return lista;
+    }
+
+    public void GuardarPermisos(int idRol, List<int> permisosIds)
+    {
+        using var cn = ConexionDB.CrearConexion();
+        cn.Open();
+        using var cmd = new SqlCommand("dbo.usp_RolPermiso_Guardar", cn)
+        {
+            CommandType = System.Data.CommandType.StoredProcedure
+        };
+        cmd.Parameters.AddWithValue("@IdRol", idRol);
+        cmd.Parameters.AddWithValue("@PermisosIds", permisosIds != null && permisosIds.Count > 0 ? string.Join(",", permisosIds) : "");
+        cmd.ExecuteNonQuery();
+    }
 }

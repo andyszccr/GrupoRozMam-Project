@@ -5,7 +5,6 @@ CREATE PROCEDURE [dbo].[usp_Permisos_Actualizar]
     @Activo BIT
 AS
 BEGIN
-    SET NOCOUNT ON;
     UPDATE dbo.Permisos
     SET Nombre = @Nombre,
         Descripcion = @Descripcion,
