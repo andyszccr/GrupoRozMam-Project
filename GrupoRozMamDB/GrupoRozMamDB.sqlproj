@@ -78,5 +78,10 @@
     <Build Include="dbo\StoredProcedures\usp_Roles_Insertar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Roles_Actualizar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Roles_Desactivar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Permisos_Listar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Permisos_ObtenerPorId.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Permisos_Insertar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Permisos_Actualizar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Permisos_Desactivar.sql" />
   </ItemGroup>
 </Project>
