@@ -13,6 +13,7 @@ namespace App
             builder.Services.AddScoped<EtiquetaServicio>();
             builder.Services.AddScoped<RolServicio>();
             builder.Services.AddScoped<PermisoServicio>();
+            builder.Services.AddScoped<UsuarioServicio>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

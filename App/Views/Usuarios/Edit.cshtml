@@ -1,0 +1,90 @@
+@model UsuarioModelo
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdUsuario" />
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="NombreUsuario" class="form-label"></label>
+                    <input asp-for="NombreUsuario" class="form-control" />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Correo" class="form-label"></label>
+                    <input asp-for="Correo" class="form-control" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Apellidos" class="form-label"></label>
+                    <input asp-for="Apellidos" class="form-control" />
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="IdRol" class="form-label"></label>
+                    <select asp-for="IdRol" class="form-select" asp-items="ViewBag.Roles">
+                        <option value="">-- Seleccionar Rol --</option>
+                    </select>
+                    <span asp-validation-for="IdRol" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TipoUsuario" class="form-label"></label>
+                    <select asp-for="TipoUsuario" class="form-select">
+                        <option value="Admin">Admin</option>
+                        <option value="Colaborador">Colaborador</option>
+                        <option value="Cliente">Cliente</option>
+                    </select>
+                    <span asp-validation-for="TipoUsuario" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Telefono" class="form-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3 form-check d-flex align-items-end" style="padding-bottom: 10px; padding-left: 2.5rem;">
+                    <div>
+                        <input asp-for="Activo" class="form-check-input" />
+                        <label asp-for="Activo" class="form-check-label"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Direccion" class="form-label"></label>
+                <textarea asp-for="Direccion" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

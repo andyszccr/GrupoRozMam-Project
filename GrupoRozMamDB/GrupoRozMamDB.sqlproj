@@ -85,5 +85,10 @@
     <Build Include="dbo\StoredProcedures\usp_Permisos_Desactivar.sql" />
     <Build Include="dbo\StoredProcedures\usp_RolPermiso_Guardar.sql" />
     <Build Include="dbo\StoredProcedures\usp_RolPermiso_ObtenerPorRol.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_Actualizar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_Desactivar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_Insertar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_Listar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_ObtenerPorId.sql" />
   </ItemGroup>
 </Project>

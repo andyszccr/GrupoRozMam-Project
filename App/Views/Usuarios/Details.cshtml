@@ -1,0 +1,51 @@
+@model UsuarioModelo
+@{
+    ViewData["Title"] = "Detalles de Usuario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.NombreUsuario)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreUsuario)</dd>
+
+        <dt class="col-sm-3">Nombre Completo</dt>
+        <dd class="col-sm-9">@Model.Nombre @Model.Apellidos</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Correo)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Correo)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.NombreRol)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreRol)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.TipoUsuario)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.TipoUsuario)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Telefono)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Telefono)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Direccion)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Direccion)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Activo)</dt>
+        <dd class="col-sm-9">
+            @if (Model.Activo)
+            {
+                <span class="badge bg-success">Sí</span>
+            }
+            else
+            {
+                <span class="badge bg-secondary">No</span>
+            }
+        </dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaCreacion)</dt>
+        <dd class="col-sm-9">@Model.FechaCreacion?.ToString("g")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Volver al listado</a>
+</div>
