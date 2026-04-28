@@ -1,8 +1,53 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-5 mb-4 bg-light rounded-3 border">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Grupo RozMam</h1>
+        <p class="col-md-10 fs-5">
+            Taller y soluciones de mecanica automotriz. Brindamos mantenimiento preventivo,
+            diagnostico tecnico y reparacion integral para que tu vehiculo siempre este en las mejores condiciones.
+        </p>
+        @if (User.Identity?.IsAuthenticated != true)
+        {
+            <a class="btn btn-primary btn-lg" asp-controller="Auth" asp-action="Login">Iniciar sesion</a>
+        }
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Quienes somos</h5>
+                <p class="card-text">
+                    Somos una empresa especializada en servicio automotriz con enfoque en calidad,
+                    transparencia y atencion personalizada.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Nuestros servicios</h5>
+                <p class="card-text">
+                    Alineacion y balanceo, frenos, afinacion, cambio de aceite, escaneo computarizado
+                    y reparaciones mecanicas generales.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Compromiso</h5>
+                <p class="card-text">
+                    Trabajamos con repuestos confiables, tiempos responsables y seguimiento profesional
+                    para cuidar la seguridad de cada cliente.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>

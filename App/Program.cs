@@ -22,6 +22,8 @@ namespace App
                 {
                     options.LoginPath = "/Auth/Login";
                     options.AccessDeniedPath = "/Auth/Login";
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
+                    options.SlidingExpiration = true;
                 });
 
             builder.Services.AddControllersWithViews();
