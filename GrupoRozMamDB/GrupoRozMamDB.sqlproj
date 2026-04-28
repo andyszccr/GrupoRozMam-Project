@@ -83,7 +83,10 @@
     <Build Include="dbo\StoredProcedures\usp_Permisos_Insertar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Permisos_Actualizar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Permisos_Desactivar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Mensajes_Contacto_Actualizar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Mensajes_Contacto_Insertar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Mensajes_Contacto_Listar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Mensajes_Contacto_ObtenerPorId.sql" />
     <Build Include="dbo\StoredProcedures\usp_RolPermiso_Guardar.sql" />
     <Build Include="dbo\StoredProcedures\usp_RolPermiso_ObtenerPorRol.sql" />
     <Build Include="dbo\StoredProcedures\usp_Usuarios_Actualizar.sql" />

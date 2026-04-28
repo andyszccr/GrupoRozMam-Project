@@ -1,0 +1,41 @@
+@model MensajeContactoModelo
+@{
+    ViewData["Title"] = "Detalle del mensaje";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Nombre</dt>
+    <dd class="col-sm-9">@Model.NombreRemitente</dd>
+
+    <dt class="col-sm-3">Correo</dt>
+    <dd class="col-sm-9">@Model.CorreoRemitente</dd>
+
+    <dt class="col-sm-3">Teléfono</dt>
+    <dd class="col-sm-9">@Model.TelefonoRemitente</dd>
+
+    <dt class="col-sm-3">Asunto</dt>
+    <dd class="col-sm-9">@Model.Asunto</dd>
+
+    <dt class="col-sm-3">Mensaje</dt>
+    <dd class="col-sm-9">@Model.Mensaje</dd>
+
+    <dt class="col-sm-3">Fecha envío</dt>
+    <dd class="col-sm-9">@Model.FechaEnvio.ToString("g")</dd>
+
+    <dt class="col-sm-3">Estado</dt>
+    <dd class="col-sm-9">@(Model.Estado ? "Atendido" : "Pendiente")</dd>
+
+    <dt class="col-sm-3">Gestionado por</dt>
+    <dd class="col-sm-9">@Model.NombreUsuarioGestiona</dd>
+
+    <dt class="col-sm-3">Notas internas</dt>
+    <dd class="col-sm-9">@Model.NotasInternas</dd>
+</dl>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.IdMensaje" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Volver</a>
+</div>

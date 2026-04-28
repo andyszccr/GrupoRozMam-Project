@@ -15,6 +15,7 @@ namespace App
             builder.Services.AddScoped<RolServicio>();
             builder.Services.AddScoped<PermisoServicio>();
             builder.Services.AddScoped<UsuarioServicio>();
+            builder.Services.AddScoped<MensajeContactoServicio>();
 
             builder.Services
                 .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

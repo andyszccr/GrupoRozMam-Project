@@ -1,0 +1,60 @@
+@model MensajeContactoModelo
+@{
+    ViewData["Title"] = "Editar mensaje";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+        <form asp-action="Edit" method="post">
+            <input asp-for="IdMensaje" type="hidden" />
+            <input asp-for="FechaEnvio" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="NombreRemitente" class="form-label"></label>
+                <input asp-for="NombreRemitente" class="form-control" />
+                <span asp-validation-for="NombreRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CorreoRemitente" class="form-label"></label>
+                <input asp-for="CorreoRemitente" class="form-control" />
+                <span asp-validation-for="CorreoRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TelefonoRemitente" class="form-label"></label>
+                <input asp-for="TelefonoRemitente" class="form-control" />
+                <span asp-validation-for="TelefonoRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Asunto" class="form-label"></label>
+                <input asp-for="Asunto" class="form-control" />
+                <span asp-validation-for="Asunto" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Mensaje" class="form-label"></label>
+                <textarea asp-for="Mensaje" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Mensaje" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="Estado" class="form-check-input" />
+                <label asp-for="Estado" class="form-check-label"></label>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NotasInternas" class="form-label"></label>
+                <textarea asp-for="NotasInternas" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="NotasInternas" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

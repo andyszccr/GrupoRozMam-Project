@@ -1,0 +1,52 @@
+@model MensajeContactoModelo
+@{
+    ViewData["Title"] = "Contáctanos";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p class="text-muted">Envíanos tu consulta y te responderemos a la brevedad.</p>
+
+@if (TempData["MensajeContactoOk"] is string mensajeOk)
+{
+    <div class="alert alert-success">@mensajeOk</div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="NombreRemitente" class="form-label"></label>
+                <input asp-for="NombreRemitente" class="form-control" />
+                <span asp-validation-for="NombreRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CorreoRemitente" class="form-label"></label>
+                <input asp-for="CorreoRemitente" class="form-control" />
+                <span asp-validation-for="CorreoRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TelefonoRemitente" class="form-label"></label>
+                <input asp-for="TelefonoRemitente" class="form-control" />
+                <span asp-validation-for="TelefonoRemitente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Asunto" class="form-label"></label>
+                <input asp-for="Asunto" class="form-control" />
+                <span asp-validation-for="Asunto" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Mensaje" class="form-label"></label>
+                <textarea asp-for="Mensaje" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Mensaje" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Volver al inicio</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
