@@ -89,6 +89,7 @@
     <Build Include="dbo\StoredProcedures\usp_Usuarios_Desactivar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Usuarios_Insertar.sql" />
     <Build Include="dbo\StoredProcedures\usp_Usuarios_Listar.sql" />
+    <Build Include="dbo\StoredProcedures\usp_Usuarios_Login.sql" />
     <Build Include="dbo\StoredProcedures\usp_Usuarios_ObtenerPorId.sql" />
   </ItemGroup>
 </Project>

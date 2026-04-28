@@ -1,8 +1,10 @@
 using CapaNegocios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
 {
+    [Authorize]
     public class CategoriasController : Controller
     {
         private readonly CategoriaServicio _servicio;

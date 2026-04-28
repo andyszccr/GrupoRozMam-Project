@@ -31,6 +31,16 @@ public class UsuarioServicio
 
     public bool Desactivar(int id) => _repositorio.Desactivar(id);
 
+    public UsuarioModelo? Login(string usuarioOCorreo, string password)
+    {
+        if (string.IsNullOrWhiteSpace(usuarioOCorreo) || string.IsNullOrWhiteSpace(password))
+            return null;
+
+        // Actualmente el proyecto guarda la contraseña en PasswordHash sin hasheo.
+        var entidad = _repositorio.Login(usuarioOCorreo.Trim(), password);
+        return entidad is null ? null : MapearAModelo(entidad);
+    }
+
     private static UsuarioModelo MapearAModelo(Usuario e) => new()
     {
         IdUsuario = e.IdUsuario,

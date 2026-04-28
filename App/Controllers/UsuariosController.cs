@@ -1,9 +1,11 @@
 using CapaNegocios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly UsuarioServicio _servicio;

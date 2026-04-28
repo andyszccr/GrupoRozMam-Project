@@ -1,4 +1,5 @@
 using CapaNegocios;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace App
 {
@@ -15,7 +16,14 @@ namespace App
             builder.Services.AddScoped<PermisoServicio>();
             builder.Services.AddScoped<UsuarioServicio>();
 
-            // Add services to the container.
+            builder.Services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Auth/Login";
+                    options.AccessDeniedPath = "/Auth/Login";
+                });
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -31,6 +39,7 @@ namespace App
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();

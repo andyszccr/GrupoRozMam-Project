@@ -107,6 +107,21 @@ public class UsuarioRepositorio
         cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
         return cmd.ExecuteNonQuery() > 0;
     }
+
+    public Usuario? Login(string usuarioOCorreo, string passwordHash)
+    {
+        using var cn = ConexionDB.CrearConexion();
+        cn.Open();
+        using var cmd = new SqlCommand("usp_Usuarios_Login", cn)
+        {
+            CommandType = CommandType.StoredProcedure
+        };
+        cmd.Parameters.AddWithValue("@UsuarioOCorreo", usuarioOCorreo);
+        cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
+
+        using var rd = cmd.ExecuteReader();
+        return rd.Read() ? MapearFila(rd) : null;
+    }
 }
 
 public static class SqlDataReaderExtensions
